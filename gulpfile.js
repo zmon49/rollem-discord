@@ -4,7 +4,7 @@ var watch = require('gulp-watch')
 var jasmine = require('gulp-jasmine')
 
 gulp.task('watch', function() {
-  var filesForTest = ['**/*.js', 'spec/*.js']
+  var filesForTest = ['**/*.js', 'test/*.js']
   return gulp.src(filesForTest)
     .pipe(watch(filesForTest))
     .pipe(jasmineBrowser.specRunner())
@@ -12,12 +12,12 @@ gulp.task('watch', function() {
 });
 
 gulp.task('jasmine', function() {
-  gulp.src('spec/*.js')
+  gulp.src('test/*.js')
       .pipe(jasmine())
 });
 
 gulp.task('watch', function () {
-  var filesForTest = ['**/*.js', 'spec/*.js']
+  var filesForTest = ['**/*.js', 'test/*.js']
   gulp.watch(filesForTest, function(event) {
     gulp.run('jasmine');
   });
